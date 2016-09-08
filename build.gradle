@@ -17,6 +17,16 @@ plugins {
 
 apply plugin: 'com.jfrog.bintray'
 
+project.version = '0.0.3'
+
+task copyTask(type: Copy) {
+    from 'zero.txt'
+    into 'build/'
+    rename { String fileName ->
+        fileName.replace('zero', "zero-${project.version}")
+    }
+}
+
 bintray {
 
     user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
@@ -32,13 +42,15 @@ bintray {
         publicDownloadNumbers = true
         attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
         version {
-            name = '0.0.1'
-            desc = "zero-0.0.1 is also known as here-to-stay"
+            name = project.version
+            desc = "zero-${project.version} is also known as here-to-stay"
         }
-    }    
+    }
 
-    filesSpec {
-       from 'zero.txt'
+    filesSpec { // 'filesSpec' is a standard Gradle CopySpec
+       from "build/zero-${project.version}.txt"
        into '.'
     }
 }
+
+bintrayUpload.mustRunAfter copyTask
