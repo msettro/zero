@@ -22,8 +22,6 @@ bintray {
     user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
     key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
 
-    def version = '0.0.1'
-
     pkg {
         repo = 'test'
         name = 'zero-pkg'
@@ -35,7 +33,7 @@ bintray {
         attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
         version {
             name = '0.0.1'
-            desc = "zero-${version.toString()} is also known as here-to-stay"
+            desc = "zero-0.0.1 is also known as here-to-stay"
         }
     }    
 
