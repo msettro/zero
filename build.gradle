@@ -19,7 +19,7 @@ apply plugin: 'com.jfrog.bintray'
 
 project.version = '0.0.3'
 
-task copyTask(type: Copy) {
+task copyTarget(type: Copy) {
     from 'zero.txt'
     into 'build/'
     rename { String fileName ->
@@ -54,4 +54,4 @@ bintray {
     }
 }
 
-bintrayUpload.mustRunAfter copyTask
+bintrayUpload.dependsOn 'copyTarget'
