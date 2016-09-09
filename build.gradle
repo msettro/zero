@@ -42,9 +42,13 @@ bintray {
         publish = true
         publicDownloadNumbers = true
         attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
+        websiteUrl = 'https://domain.tld/website/url/...'
+        issueTrackerUrl = 'https://domain.tld/issues'
         version {
             name = project.version
             desc = "zero-${project.version} is also known as here-to-stay"
+            released = new Date()   // Version Publication Date
+            vcsTag = "${project.version}"
         }
     }
 
