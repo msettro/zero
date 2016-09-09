@@ -39,6 +39,7 @@ bintray {
         licenses = ['Unlicenced']
         vcsUrl = 'https://github.com/msettro/zero.git'
         labels = ['gear', 'gore', 'gorilla']
+        publish = true
         publicDownloadNumbers = true
         attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
         version {
