@@ -55,3 +55,4 @@ bintray {
 }
 
 bintrayUpload.dependsOn 'copyTarget'
+bintrayUpload.mustRunAfter 'copyTarget'
